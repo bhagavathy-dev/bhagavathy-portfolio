@@ -547,14 +547,21 @@
     @media (max-width: 768px) {
       nav {
         padding: 0 20px;
-        flex-direction: column;
-        height: auto;
-        gap: 15px;
+        height: 70px;
+        flex-direction: row;
+        align-items: center;
       }
 
       .nav-menu {
-        flex-wrap: wrap;
-        gap: 15px;
+        position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: inherit;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
       }
 
       .content {
@@ -772,18 +779,18 @@
      </div>
      <div class="card">
       <div class="card-header">
-       <h2 class="card-title">🧠 AI-Based Navigation Assistant for Visually Impaired</h2><button class="card-toggle" onclick="toggleCard(this)">▼</button>
+       <h2 class="card-title">Full Stack User Management System (MERN Stack)</h2><button class="card-toggle" onclick="toggleCard(this)">▼</button>
       </div>
       <div class="card-content expanded">
-       <p style="font-size: 14px; line-height: 1.7; margin-top: 0;">A Python-based system leveraging computer vision to analyze real-time surroundings and provide audio-based guidance for safe navigation.</p>
+       <p style="font-size: 14px; line-height: 1.7; margin-top: 0;">Built a full-stack web application enabling user registration, login, and profile management.</p>
        <p style="margin: 12px 0; font-weight: 600; color: var(--primary);">Key Features:</p>
        <ul>
-        <li>Real-time computer vision analysis of surroundings</li>
-        <li>Audio-based guidance system</li>
-        <li>Focus on real-world usability and accessibility</li>
-        <li>End-to-end execution from data capture to output</li>
+        <li>Designed RESTful APIs using Node.js and Express.</li>
+<li>Integrated MongoDB for persistent data storage.</li>
+<li>Implemented CRUD operations and form validation.</li>
+
        </ul>
-       <p class="card-meta" style="margin-top: 15px;">Tech Stack: Python, Computer Vision, OpenCV</p>
+       <p class="card-meta" style="margin-top: 15px;">Tech: React, Node.js, Express.js, MongoDB, JavaScript, REST API</p>
       </div>
      </div>
      <div class="card">
@@ -858,17 +865,7 @@
         Madurai, Tamil Nadu
        </div>
       </div>
-      <div class="contact-card">
-       <div class="contact-icon">
-        📞
-       </div>
-       <div class="contact-label">
-        Phone
-       </div>
-       <div class="contact-value">
-        <a href="tel:+919042532544" id="contactPhone">+91 90425 32544</a>
-       </div>
-      </div>
+     
       <div class="contact-card">
        <div class="contact-icon">
         ✉️
@@ -918,7 +915,6 @@
   const defaultConfig = {
     full_name: "BHAGAVATHY M",
     location: "Madurai, Tamil Nadu",
-    phone: "+91 90425 32544",
     email: "bhagavathy.029@gmail.com",
     linkedin: "linkedin.com/in/bhagavathy-m-a426932b7",
     career_objective: "Aspiring Software Engineering Intern with strong Python fundamentals and hands-on experience in problem solving, rapid prototyping, and AI-driven applications. Comfortable building working solutions quickly, explaining logic clearly, and iterating based on feedback."
@@ -989,8 +985,6 @@
     document.getElementById('heroName').textContent = config.full_name || defaultConfig.full_name;
     document.getElementById('heroObjective').textContent = config.career_objective || defaultConfig.career_objective;
     document.getElementById('contactLocation').textContent = config.location || defaultConfig.location;
-    document.getElementById('contactPhone').textContent = config.phone || defaultConfig.phone;
-    document.getElementById('contactPhone').href = `tel:${config.phone || defaultConfig.phone}`;
     document.getElementById('contactEmail').textContent = config.email || defaultConfig.email;
     document.getElementById('contactEmail').href = `mailto:${config.email || defaultConfig.email}`;
   };
@@ -1005,7 +999,6 @@
   const mapToEditPanelValues = (cfg) => new Map([
     ["full_name", cfg.full_name || defaultConfig.full_name],
     ["location", cfg.location || defaultConfig.location],
-    ["phone", cfg.phone || defaultConfig.phone],
     ["email", cfg.email || defaultConfig.email],
     ["linkedin", cfg.linkedin || defaultConfig.linkedin],
     ["career_objective", cfg.career_objective || defaultConfig.career_objective]
