@@ -549,19 +549,11 @@
         padding: 0 20px;
         height: 70px;
         flex-direction: row;
-        align-items: center;
+        gap:15px;
       }
 
       .nav-menu {
-        position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: inherit;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px 0;
-    display: none;
+      flex-wrap: wrap; gap: 15px;
       }
 
       .content {
@@ -683,7 +675,8 @@
   <div class="main-wrapper"><!-- Navigation -->
    <nav>
     <div class="nav-brand">
-     BM
+    <img src="bhagavathy.jpg" alt="Bhagavathy M" class="nav-profile-img">
+  <span>BHAGAVATHY M</span>
     </div>
     <ul class="nav-menu">
      <li><a class="nav-link active" onclick="switchSection('home')">Home</a></li>
