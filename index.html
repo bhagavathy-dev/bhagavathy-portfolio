@@ -50,76 +50,26 @@
     }
 
     /* Navigation */
-    nav {
-      background: linear-gradient(135deg, var(--secondary) 0%, #34495e 100%);
-      color: white;
-      padding: 0 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease;
-    }
+   <nav>
+  <div class="nav-left">
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+  </div>
 
-    body.dark-mode nav {
-      background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-    }
+  <div class="nav-right">
+    <img src="bhagavathy.jpeg" alt="Bhagavathy M" class="nav-profile-img">
+    <span class="nav-name">BHAGAVATHY M</span>
+  </div>
 
-    .nav-brand {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
 
-    .nav-menu {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nav-link {
-      color: white;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      padding: 8px 0;
-      border-bottom: 2px solid transparent;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--primary);
-      border-bottom: 2px solid var(--primary);
-    }
-
-    .dark-mode-toggle {
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .dark-mode-toggle:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: rotate(20deg);
-    }
+  <ul class="nav-menu" id="mobileMenu">
+    <li><a class="nav-link" onclick="switchSection('home')">Home</a></li>
+    <li><a class="nav-link" onclick="switchSection('about')">About</a></li>
+    <li><a class="nav-link" onclick="switchSection('projects')">Projects</a></li>
+    <li><a class="nav-link" onclick="switchSection('skills')">Skills</a></li>
+    <li><a class="nav-link" onclick="switchSection('contact')">Contact</a></li>
+  </ul>
+</nav>
 
     /* Main Content */
     .content {
@@ -670,9 +620,75 @@
       display: block;
       animation: fadeIn 0.4s ease;
     }
+   nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+  position: relative;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  gap: 10px;
+}
+
+.nav-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.nav-profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.hamburger {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-menu {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: var(--secondary);
+  width: 180px;
+  flex-direction: column;
+  display: none;
+  padding: 15px;
+  border-radius: 8px;
+  list-style: none;
+}
+
+.nav-menu.show {
+  display: flex;
+}
+
+.nav-menu li {
+  margin-bottom: 10px;
+}
   </style>
   <style>@view-transition { navigation: auto; }</style>
-  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript">
+   function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.classList.toggle("show");
+}
+  </script>
  </head>
  <body>
   <div class="main-wrapper"><!-- Navigation -->
