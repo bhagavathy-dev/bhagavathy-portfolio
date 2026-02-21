@@ -507,6 +507,9 @@
   object-fit: cover;
   border: 2px solid white;
 }
+   .hamburger {
+  display: none;
+}
 
     /* Responsive */
    @media (max-width: 768px) {
@@ -516,10 +519,24 @@
     height: 60px;
   }
 
-  .nav-menu {
+ .nav-menu {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: var(--secondary);
+    width: 180px;
+    flex-direction: column;
     display: none;
+    padding: 15px;
+    border-radius: 8px;
+  }
+.nav-menu.show {
+    display: flex;
   }
 
+  .hamburger {
+    display: block;
+  }
   .nav-brand span {
     font-size: 16px;
   }
@@ -684,9 +701,29 @@
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="https://cdn.tailwindcss.com" type="text/javascript">
-   function toggleMenu() {
+   function switchSection(sectionName) {
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  sections.forEach(s => s.classList.remove('active'));
+  navLinks.forEach(l => l.classList.remove('active'));
+
+  const activeSection = document.getElementById(`${sectionName}-section`);
+  if (activeSection) {
+    activeSection.classList.add('active');
+  }
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.textContent.toLowerCase() === sectionName) {
+      link.classList.add('active');
+    }
+  });
+
+  // Close mobile menu after click
   const menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("show");
+  if (menu) {
+    menu.classList.remove("show");
+  }
 }
   </script>
  </head>
